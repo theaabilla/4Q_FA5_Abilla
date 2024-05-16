@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="inputtedNumber"></div>
+<div id="shapeResult"></div>
+
+<script>
+function isNumeric(num) {
+  return !isNaN(num);
+}
+
+var inputNumber;
+do {
+  inputNumber = prompt("Please enter a number:");
+} while (!isNumeric(inputNumber)); 
+
+var number = parseInt(inputNumber);
+document.getElementById("inputtedNumber").innerText = "Number: " + number;
+var shape = "";
+
+if (number % 2 === 0) {
+  for (var r = number; r >= 1; r--) {
+    for (var c = r; c >= 1; c--) {
+      shape += r + " ";
+    }
+    shape += "\n";
+  }
+} else {
+  for (var r = number; r >= 1; r--) {
+    for (var c = number; c >= 1; c--) {
+      shape += r + " ";
+    }
+    shape += "\n";
+  }
+}
+document.getElementById("shapeResult").innerText = shape;
+</script>
+</body>
+</html>
