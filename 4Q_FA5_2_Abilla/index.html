@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4Q FA5 2</title>
+</head>
+<body>
+    <input type="text" id="nameInput" placeholder="Enter name">
+    <button onclick="addName()">Add Name</button>
+    <button onclick="removeName()">Remove Name</button>
+    <br>
+    <p id="contactList"></p>
+
+    <script>
+        var contacts = [];
+
+        function displayContacts() {
+            var output = "";
+            for (var i = 0; i < contacts.length; i++) {
+                output += contacts[i] + " ";
+            }
+            document.getElementById("contactList").innerHTML = output;
+        }
+
+        function addName() {
+            var name = document.getElementById("nameInput").value;
+            if (name.trim() !== "") {
+                if (contacts.length === 7) {
+                    contacts.shift(); 
+                }
+                contacts.push(name);
+                displayContacts();
+                document.getElementById("nameInput").value = "";
+            }
+        }
+
+        function removeName() {
+            if (contacts.length > 0) {
+                contacts.pop(); 
+                displayContacts();
+            }
+        }
+    </script>
+</body>
+</html>
+
